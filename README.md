@@ -1,4 +1,7 @@
-# Demopr
+# ProfileDemo with QRCode Generation
+
+# Live Demo
+https://demo-profileapp.herokuapp.com/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 

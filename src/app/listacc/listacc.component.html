@@ -1,0 +1,156 @@
+
+<div class="w3-container w3-margin w3-padding-64 w3-card">
+  <button type="button" class="btn btn-primary" [routerLink]="['/profile/',profile[0].sid]"><i class="fa fa-arrow-left"></i> profile</button>
+  <!-- <input type="checkbox" checked data-toggle="toggle" data-onstyle="outline-success" data-offstyle="outline-danger"> -->
+  <form [formGroup]="myForm" (ngSubmit)="submit()">
+    <div class="media text-muted pt-3" *ngIf="profile[0].quora!=''">
+      <img src="assets/quora.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+
+      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark"><a href="{{profile[0].quora}}">Quora</a> 
+            <p-inputSwitch formControlName="qcheck" [ngModel]="profile[0].qcheck === 'true'"></p-inputSwitch> 
+
+            <!-- <input type="checkbox"  [(ngModel)]="!profile[0].qcheck" class="w3-margin"  formControlName="qcheck" (change)="changea($event)"> -->
+           </strong>
+          <br><br>
+        </div>
+        
+      </div>
+    </div>
+            <div class="media text-muted pt-3" *ngIf="profile[0].yq!=''">
+               <img src="assets/download.jpg" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+          
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark"><a href="{{profile[0].yq}}">YourQuote</a> 
+                    
+                      <p-inputSwitch formControlName="yqcheck" [ngModel]="profile[0].yqcheck === 'true'" ></p-inputSwitch> 
+                       <!-- <input type="checkbox" [(ngModel)]="!profile[0].yqcheck"  class="w3-margin" formControlName="yqcheck">  -->
+                      </strong>
+                    <br><br>
+                  </div>
+                  
+                </div>
+              </div>
+              
+              <div class="media text-muted pt-3" *ngIf="profile[0].github!=''">
+                <img src="assets/github.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+          
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark"><a href="{{profile[0].github}}">Github</a> 
+                      <p-inputSwitch formControlName="gitcheck" [ngModel]="profile[0].gitcheck === 'true'" ></p-inputSwitch> 
+
+                       <!-- <input type="checkbox"  value="{{!profile[0].gitcheck}}" [checked]="profile[0].gitcheck=='true'" class="w3-margin" formControlName="gitcheck">  -->
+                      </strong>
+                    <br><br>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <div class="media text-muted pt-3" *ngIf="profile[0].linkedin!=''&&profile[0].linkcheck=='true'">
+                <img src="assets/linkedin.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+          
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark"><a href="{{profile[0].linkedin}}">Linkedin</a> 
+                      <p-inputSwitch formControlName="linkcheck" [ngModel]="profile[0].linkcheck === 'true'" ></p-inputSwitch> 
+
+                       <!-- <input type="checkbox" value="true" checked class="w3-margin"  formControlName="linkcheck"> -->
+                       </strong>
+                    <br><br>
+                  </div>
+                  
+                </div>
+              </div>
+            <div class="media text-muted pt-3" *ngIf="profile[0].fb!=''&&profile[0].fbc=='true'">
+                <img src="assets/facebook.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+          
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark"><a href="{{profile[0].fb}}">Facebook</a>
+                         <!-- <input type="checkbox" value="true" checked class="w3-margin"  formControlName="fbc">  -->
+                      <p-inputSwitch formControlName="fbc" [ngModel]="profile[0].fbc === 'true'" ></p-inputSwitch> 
+
+                        </strong>
+                    <br><br>
+                  </div>
+                  
+                </div>
+              </div>
+              
+              
+            <div class="media text-muted pt-3" *ngIf="profile[0].ig!=''">
+                <img src="assets/instagram.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+          
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark"><a href="{{profile[0].ig}}">Instagram</a> 
+                       <!-- <input type="checkbox" class="w3-margin"  value="true" formControlName="igc"> -->
+                      <p-inputSwitch formControlName="igc" [ngModel]="profile[0].igc === 'true'" ></p-inputSwitch> 
+
+                       </strong>
+                    <br><br>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="media text-muted pt-3" *ngIf="profile[0].snap!=''&&profile[0].snapc=='true'">
+                <img src="assets/snapchat.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+          
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark"><a href="{{profile[0].snap}}">snapchat</a> 
+                      <p-inputSwitch formControlName="snapc" [ngModel]="profile[0].snapc === 'true'" ></p-inputSwitch> 
+
+                       <!-- <input type="checkbox" value="true" checked class="w3-margin"  formControlName="snapc" >  -->
+                      </strong>
+                    <br><br>
+                  </div>
+                  
+                </div>
+              </div>
+            
+           
+  <br>
+              <button type="submit" value="save" class="btn btn-success"></button>
+              <!-- <input type="checkbox" checked data-toggle="toggle" data-onstyle="outline-secondary" data-offstyle="outline-success"> -->
+            </form>
+            </div>
+           
+
+
+
+            <!-- <p-multiSelect [options]="cars" [(ngModel)]="selectedCars1"></p-multiSelect> -->
+            <!-- <div class="col-xs-12 divider text-center">
+              <div class="col-xs-12 col-sm-4 emphasis">
+                  <h2><strong> 20,7K </strong></h2>                    
+                  <p><small>Followers</small></p>
+                  <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
+              </div>
+              <div class="col-xs-12 col-sm-4 emphasis">
+                  <h2><strong>245</strong></h2>                    
+                  <p><small>Following</small></p>
+                  <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+              </div>
+              <div class="col-xs-12 col-sm-4 emphasis">
+                  <h2><strong>43</strong></h2>                    
+                  <p><small>Snippets</small></p>
+                  <div class="btn-group dropup btn-block">
+                    <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu text-left" role="menu">
+                      <li><a href="#"><span class="fa fa-envelope pull-right"></span> Send an email </a></li>
+                      <li><a href="#"><span class="fa fa-list pull-right"></span> Add or remove from a list  </a></li>
+                      <li class="divider"></li>
+                      <li><a href="#"><span class="fa fa-warning pull-right"></span>Report this user for spam</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#" class="btn disabled" role="button"> Unfollow </a></li>
+                    </ul>
+                  </div>
+              </div> -->

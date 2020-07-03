@@ -1,0 +1,300 @@
+<button type="button" class="btn btn-secondary w3-right w3-margin" data-toggle="modal" data-target="#exampleModalLong" *ngIf="isloggedin">
+setting
+</button>
+<div class="w3-container w3-padding-64 w3-center">
+  <!-- <p-fieldset legend="Profile" [toggleable]="true" > -->
+    
+    <!-- <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+    <div id="demo" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div> -->
+<!-- </p-fieldset> -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Manage Profile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form  [formGroup]="myForm" (ngSubmit)="submit()" *ngIf="myForm">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputEmail3"  formControlName="name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Conatct</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputPassword3"  formControlName="contact">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3"  formControlName="email">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputEmail3"  formControlName="username">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3"  formControlName="password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+              </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="delete(signup[0].sid)"  data-dismiss="modal">Delete Account</button>
+            <button type="button" class="btn btn-danger" [routerLink]="['/listacc']"  data-dismiss="modal">Account List</button>
+            <button class="w3-button w3-white w3-border w3-border-red w3-round-large"  [routerLink]="['/editacc',profile[0].sid]" data-dismiss="modal">Edit </button>
+            <!-- <p-multiSelect [options]="cities1" [(ngModel)]="selectedCities1"></p-multiSelect> -->
+            <!-- <p-inputSwitch formControlName="qcheck" ></p-inputSwitch> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row rounded shadow-sm w3-rounds" *ngIf="profile">
+      <div class="col-lg-12">
+  
+              <div class="card hovercard w3-card" style="box-shadow:4px 4px 4px rgb(212, 212, 212);">
+                  <div class="cardheader">
+  
+                  </div>
+                  <div class="avatar">
+                      <img src="assets/vips.jpg" style="width: 250px;height: 250px;">
+                  </div>
+                  <div class="info">
+                      <div class="title">
+                          <h1>{{signup[0].name}}</h1>
+                      </div>
+                          <!-- <h3> {{profile[0].contact}}</h3>
+                      <h3>{{profile[0].email}}</h3> -->
+                  </div>
+                 <div class="w3-row">
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Download QR</button>
+                      <button type="button" class="btn btn-outline-info">Contact Details</button>
+                    </div>
+                 </div>
+                  <!-- <div class="w3-container w3-margin">
+                  <a href="#" class="fa fa-facebook"></a>
+  <a href="#" class="fa fa-twitter"></a>
+  <a href="#" class="fa fa-google"></a>
+  <a href="#" class="fa fa-linkedin"></a>
+  <a href="#" class="fa fa-youtube"></a>
+  <a href="#" class="fa fa-instagram"></a>
+  <a href="#" class="fa fa-pinterest"></a>
+  <a href="#" class="fa fa-snapchat-ghost"></a>
+  <a href="#" class="fa fa-skype"></a>
+  </div> -->
+              <!-- <div class="w3-container w3-margin w3-padding-64"> -->
+    <div class="w3-margin w3-padding-64 w3-container" style="background-color: #f8f8f8;">
+                  <h3 class=" pb-2 mb-0">Social Accounts</h3>
+                  <div class="media text-muted pt-3">
+                    <img src="assets/whatsapp.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+              
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                      <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">{{signup[0].contact}}</strong>
+                        <br><br>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="media text-muted pt-3">
+                    <img src="assets/gmail.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+              
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                      <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">{{signup[0].email}}</strong>
+                        <br><br>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="media text-muted pt-3" *ngIf="profile[0].quora!=''&&profile[0].qcheck=='true'">
+                    <img src="assets/quora.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                      <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark"><a href="{{profile[0].quora}}">Quora</a> 
+                          <!-- <p-inputSwitch formControlName="qcheck" [ngModel]="profile[0].qcheck === 'true'"></p-inputSwitch>  -->
+                
+                          <!-- <input type="checkbox"  [(ngModel)]="!profile[0].qcheck" class="w3-margin"  formControlName="qcheck" (change)="changea($event)"> -->
+                         </strong>
+                        <br><br>
+                      </div>
+                      
+                    </div>
+                  </div>
+                          <div class="media text-muted pt-3" *ngIf="profile[0].yq!=''&&profile[0].yqcheck=='true'">
+                             <img src="assets/download.jpg" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                        
+                              <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                  <strong class="text-gray-dark"><a href="{{profile[0].yq}}">YourQuote</a> 
+                                  
+                                    <!-- <p-inputSwitch formControlName="yqcheck" [ngModel]="profile[0].yqcheck === 'true'" ></p-inputSwitch>  -->
+                                     <!-- <input type="checkbox" [(ngModel)]="!profile[0].yqcheck"  class="w3-margin" formControlName="yqcheck">  -->
+                                    </strong>
+                                  <br><br>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            
+                            <div class="media text-muted pt-3" *ngIf="profile[0].github!=''&&profile[0].github=='true'">
+                              <img src="assets/github.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                        
+                              <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                  <strong class="text-gray-dark"><a href="{{profile[0].github}}">Github</a> 
+                                    <!-- <p-inputSwitch formControlName="gitcheck" [ngModel]="profile[0].gitcheck === 'true'" ></p-inputSwitch>  -->
+                                     <!-- <input type="checkbox"  value="{{!profile[0].gitcheck}}" [checked]="profile[0].gitcheck=='true'" class="w3-margin" formControlName="gitcheck">  -->
+                                    </strong>
+                                  <br><br>
+                                </div>
+                              </div>
+                            </div>
+                
+                            <div class="media text-muted pt-3" *ngIf="profile[0].linkedin!=''&&profile[0].linkcheck=='true'">
+                              <img src="assets/linkedin.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                        
+                              <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                  <strong class="text-gray-dark"><a href="{{profile[0].linkedin}}">Linkedin</a> 
+                                    <!-- <p-inputSwitch formControlName="linkcheck" [ngModel]="profile[0].linkcheck === 'true'" ></p-inputSwitch>  -->
+                
+                                     <!-- <input type="checkbox" value="true" checked class="w3-margin"  formControlName="linkcheck"> -->
+                                     </strong>
+                                  <br><br>
+                                </div>
+                                
+                              </div>
+                            </div>
+                          <div class="media text-muted pt-3" *ngIf="profile[0].fb!=''&&profile[0].fbc=='true'">
+                              <img src="assets/facebook.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                        
+                              <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                  <strong class="text-gray-dark"><a href="{{profile[0].fb}}">Facebook</a>
+                                       <!-- <input type="checkbox" value="true" checked class="w3-margin"  formControlName="fbc">  -->
+                                    <!-- <p-inputSwitch formControlName="fbc" [ngModel]="profile[0].fbc === 'true'" ></p-inputSwitch>  -->
+                
+                                      </strong>
+                                  <br><br>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            
+                            
+                          <div class="media text-muted pt-3" *ngIf="profile[0].ig!=''&&profile[0].igc=='true'">
+                              <img src="assets/instagram.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                        
+                              <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                  <strong class="text-gray-dark"><a href="{{profile[0].ig}}">Instagram</a> 
+                                     <!-- <input type="checkbox" class="w3-margin"  value="true" formControlName="igc"> -->
+                                    <!-- <p-inputSwitch formControlName="igc" [ngModel]="profile[0].igc === 'true'" ></p-inputSwitch>  -->
+                
+                                     </strong>
+                                  <br><br>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            <div class="media text-muted pt-3" *ngIf="profile[0].snap!=''&&profile[0].snapc=='true'">
+                              <img src="assets/snapchat.png" class="bd-placeholder-img mr-2 rounded" width="50" height="50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                        
+                              <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                  <strong class="text-gray-dark"><a href="{{profile[0].snap}}">snapchat</a> 
+                                    <!-- <p-inputSwitch formControlName="snapc" [ngModel]="profile[0].snapc === 'true'" ></p-inputSwitch>  -->
+                
+                                     <!-- <input type="checkbox" value="true" checked class="w3-margin"  formControlName="snapc" >  -->
+                                    </strong>
+                                  <br><br>
+                                </div>
+                                
+                              </div>
+                            </div>
+                  </div>
+                 
+                </div>
+              </div>
+            <!-- </div>  -->
+            <!-- <div class="[ form-group ]">
+              <input type="checkbox" name="fancy-checkbox-info-custom-icons" id="fancy-checkbox-info-custom-icons" autocomplete="off" />
+              <div class="[ btn-group ]">
+                  <label for="fancy-checkbox-info-custom-icons" class="[ btn btn-info ]">
+                      <span class="[ glyphicon glyphicon-plus ]"><i class="fa fa-plus"></i></span>
+                      <span class="[ glyphicon glyphicon-minus ]"></span>
+                      
+                  </label>
+                  <label for="fancy-checkbox-info-custom-icons" class="[ btn btn-default active ]">
+                      Info Checkbox
+                  </label>
+              </div>
+          </div> -->
+       
+<!-- <div style="text-align:center">
+  <input type="text" placeholder="Enter name to generate QR Code" [(ngModel)]="qrcodename"><br>
+  <button (click)="generateQRCode()">Generate QR Code</button>
+  <ngx-qrcode *ngIf="display" id="qrCodeImage">
+  </ngx-qrcode><br>
+  <a [href]="href" *ngIf="display" (click)="downloadImage()" download>Download Image</a>
+</div>
+     <router-outlet></router-outlet> -->
+     <!-- <ngx-qrcode [qrc-element-type]="url" [qrc-value] = "value" >
+    </ngx-qrcode> -->
+    <!-- <qrcode [level]="1" [qrvalue]="signup[0].name"></qrcode> -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+       <!-- Modal content-->
+       <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <!-- <h4 class="modal-title">Modal Header</h4> -->
+        </div>
+        <div class="modal-body">
+    <qrcode [level]="1" [qrvalue]="profile[0].linkedin"></qrcode>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+
+
+  
+          
+
+
+
